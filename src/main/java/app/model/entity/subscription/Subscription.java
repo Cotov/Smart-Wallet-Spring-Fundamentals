@@ -34,7 +34,7 @@ public class Subscription {
     private UUID id;
 
     @ManyToOne
-    @JoinColumn(name = "owener_id")
+    @JoinColumn(name = "owner_id")
     private User owner;
 
     @Column(nullable = false)
@@ -60,5 +60,8 @@ public class Subscription {
 
     @Column(nullable = false)
     private LocalDateTime updatedOn;
+
+    @Column(nullable = false)
+    private LocalDateTime comlpetedOn;
 }
 
