@@ -1,8 +1,12 @@
 C:\Users\cotov\CursorProjects\Smart-Wallet-Spring-Fundamentals\src\main\java\app\Application.java
 C:\Users\cotov\CursorProjects\Smart-Wallet-Spring-Fundamentals\src\main\java\app\config\BeanConfiguration.java
+C:\Users\cotov\CursorProjects\Smart-Wallet-Spring-Fundamentals\src\main\java\app\mapper\subscription\SubscriptionMapper.java
 C:\Users\cotov\CursorProjects\Smart-Wallet-Spring-Fundamentals\src\main\java\app\mapper\user\UserMapper.java
+C:\Users\cotov\CursorProjects\Smart-Wallet-Spring-Fundamentals\src\main\java\app\mapper\wallet\WalletMapper.java
+C:\Users\cotov\CursorProjects\Smart-Wallet-Spring-Fundamentals\src\main\java\app\model\dto\subscription\SubscriptionDto.java
 C:\Users\cotov\CursorProjects\Smart-Wallet-Spring-Fundamentals\src\main\java\app\model\dto\user\UserDto.java
 C:\Users\cotov\CursorProjects\Smart-Wallet-Spring-Fundamentals\src\main\java\app\model\dto\user\UserRegisterRequest.java
+C:\Users\cotov\CursorProjects\Smart-Wallet-Spring-Fundamentals\src\main\java\app\model\dto\wallet\WalletDto.java
 C:\Users\cotov\CursorProjects\Smart-Wallet-Spring-Fundamentals\src\main\java\app\model\entity\subscription\Subscription.java
 C:\Users\cotov\CursorProjects\Smart-Wallet-Spring-Fundamentals\src\main\java\app\model\entity\subscription\SubscriptionPeriod.java
 C:\Users\cotov\CursorProjects\Smart-Wallet-Spring-Fundamentals\src\main\java\app\model\entity\subscription\SubscriptionStatus.java

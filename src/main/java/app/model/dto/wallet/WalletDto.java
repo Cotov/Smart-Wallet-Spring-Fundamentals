@@ -1,0 +1,23 @@
+package app.model.dto.wallet;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.Currency;
+import java.util.UUID;
+
+import app.model.entity.user.User;
+import app.model.entity.wallet.WalletStatus;
+import lombok.Builder;
+import lombok.Value;
+@Builder
+@Value
+public class WalletDto {
+    private UUID id;
+    private User owner;
+    private WalletStatus status;
+    private BigDecimal balance;
+    private Currency currency;
+    private LocalDateTime createdOn;
+    private LocalDateTime updatedOn;
+
+}

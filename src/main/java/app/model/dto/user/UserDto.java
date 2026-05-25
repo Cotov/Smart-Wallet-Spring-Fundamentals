@@ -6,9 +6,13 @@ import java.util.UUID;
 
 import app.model.entity.user.UserRole;
 import app.model.entity.user.Country;
-import app.model.entity.subscription.Subscription;
-import app.model.entity.wallet.Wallet;
+import app.model.dto.subscription.SubscriptionDto;
+import app.model.dto.wallet.WalletDto;
+import lombok.Builder;
+import lombok.Value;
 
+@Builder
+@Value
 public class UserDto {
 
     private UUID id;
@@ -23,5 +27,6 @@ public class UserDto {
     private LocalDateTime updatedOn;
     private List<SubscriptionDto> subscriptions;
     private List<WalletDto> wallets;
+    private boolean isActive;
 
 }
