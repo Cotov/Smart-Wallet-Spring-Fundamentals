@@ -3,8 +3,8 @@ package app.service.subscription;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import app.model.entity.subscription.Subscription;
 import app.model.entity.subscription.SubscriptionPeriod;
@@ -14,10 +14,10 @@ import app.model.entity.user.User;
 import app.repositiry.subscription.SubscriptionRepository;
 
 @Service
+@Transactional
 public class SubscriptionService {
     private SubscriptionRepository subscriptionRepository;
 
-    @Autowired
     public SubscriptionService(SubscriptionRepository subscriptionRepository) {
         this.subscriptionRepository = subscriptionRepository;
     }

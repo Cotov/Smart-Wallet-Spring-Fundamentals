@@ -61,4 +61,8 @@ public class UserMapper {
                         .updatedOn(user.getUpdatedOn())
                         .build();
     }
+
+    public UserDto LoginRequestToUserDto(User user) {
+        
+    }
 }

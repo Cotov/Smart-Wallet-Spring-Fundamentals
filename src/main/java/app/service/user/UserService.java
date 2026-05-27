@@ -3,12 +3,16 @@ package app.service.user;
 import app.service.wallet.WalletService;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import app.mapper.user.UserMapper;
 import app.model.dto.user.UserDto;
+import app.model.dto.user.UserLoginRequest;
 import app.model.dto.user.UserRegisterRequest;
 import app.model.entity.subscription.Subscription;
 import app.model.entity.user.User;
@@ -19,18 +23,20 @@ import app.service.subscription.SubscriptionService;
 @Service
 public class UserService {
 
+    private final PasswordEncoder passwordEncoder;
     private WalletService walletService;
     private UserRepositiry userRepositiry;
     private SubscriptionService subscriptionService;
     private UserMapper userMapper;
 
-    @Autowired
+    @Transactional
     public UserService(UserRepositiry userRepositiry, UserMapper userMapper, SubscriptionService subscriptionService,
-            WalletService walletService) {
+            WalletService walletService, PasswordEncoder passwordEncoder) {
         this.userRepositiry = userRepositiry;
         this.userMapper = userMapper;
         this.subscriptionService = subscriptionService;
         this.walletService = walletService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public UserDto register(UserRegisterRequest userRegisterRequest) {
@@ -60,6 +66,17 @@ public class UserService {
         userRepositiry.save(userEntity);
 
         return userMapper.toUserDto(userEntity);
+    }
+
+    public UserDto login(UserLoginRequest loginRequest) {
+        Optional<User> optionalUser = userRepositiry.findByUserName(loginRequest.getUsername());
+
+        if (optionalUser.isEmpty()
+                || !passwordEncoder.matches(loginRequest.getPassword(), optionalUser.get().getPassword())) {
+            throw new IllegalArgumentException("User name or Password incorrect");
+        }
+
+        return userMapper.toUserDto(optionalUser.get());
     }
 
 }
